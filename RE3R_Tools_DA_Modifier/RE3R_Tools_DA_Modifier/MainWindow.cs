@@ -1,4 +1,5 @@
 ﻿using RE3R_Tools_DA_Library;
+using RE3R_Tools_DA_Modifier.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +12,31 @@ using System.Windows.Forms;
 
 namespace RE3R_Tools_DA_Modifier
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         private const string TargetDAFile = "gamerankparameterdata.user.2";
         private byte[] FileData;
 
-        public Form1()
+        private DifficultyAdjustmentDisplayControl[] AdjustmentDisplays;
+
+        public MainWindow()
         {
             InitializeComponent();
 
             LoadFileBtn.Click += LoadFileBtn_Click;
+            InitialiseAdjustmentDisplayControls();
+        }
 
+        private void InitialiseAdjustmentDisplayControls()
+        {
+            AdjustmentDisplays = new DifficultyAdjustmentDisplayControl[DifficultyInfoTabControl.TabCount]; // 5 difficulties
+
+            for(int i = 0; i < DifficultyInfoTabControl.TabCount; ++i)
+            {
+                AdjustmentDisplays[i] = new DifficultyAdjustmentDisplayControl();
+                DifficultyInfoTabControl.TabPages[i].Controls.Add(AdjustmentDisplays[i]);
+                AdjustmentDisplays[i].Dock = DockStyle.Fill;
+            }
         }
 
         private void DumpDataToConsole()
@@ -30,7 +45,7 @@ namespace RE3R_Tools_DA_Modifier
             {
                 RankAdjustmentParser parser = new RankAdjustmentParser(FileData);
                 var daInfo = parser.GetDifficultyAdjustments();
-                foreach(var info in daInfo)
+                foreach (var info in daInfo)
                 {
                     System.Diagnostics.Debug.WriteLine($"Difficulty {info.Difficulty}");
                     foreach(var rank in info.RankAdjustments)
@@ -54,7 +69,23 @@ namespace RE3R_Tools_DA_Modifier
                 {
                     FileData = System.IO.File.ReadAllBytes(dialog.FileName);
                     DumpDataToConsole();
+                    DisplayFileData();
                 }
+            }
+        }
+
+        private void DisplayFileData()
+        {
+            if (FileData == null)
+                return;
+
+            RankAdjustmentParser parser = new RankAdjustmentParser(FileData);
+            var daInfo = parser.GetDifficultyAdjustments();
+
+            for(int i = 0; i < daInfo.Length && i < DifficultyInfoTabControl.TabPages.Count; ++i)
+            {
+                DifficultyInfoTabControl.TabPages[i].Text = daInfo[i].Difficulty.ToString();
+                AdjustmentDisplays[i].SetDifficultyAdjustmentInfo(daInfo[i]);
             }
         }
     }
