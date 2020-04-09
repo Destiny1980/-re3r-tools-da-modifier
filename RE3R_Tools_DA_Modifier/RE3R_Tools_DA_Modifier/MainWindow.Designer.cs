@@ -37,6 +37,7 @@
             this.HardcoreTab = new System.Windows.Forms.TabPage();
             this.NightmareTab = new System.Windows.Forms.TabPage();
             this.InfernoTab = new System.Windows.Forms.TabPage();
+            this.ModifyDAButton = new System.Windows.Forms.Button();
             this.OptionsGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.DifficultyInfoTabControl.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             // OptionsGroupBox
             // 
+            this.OptionsGroupBox.Controls.Add(this.ModifyDAButton);
             this.OptionsGroupBox.Controls.Add(this.LoadFileBtn);
             this.OptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsGroupBox.Location = new System.Drawing.Point(0, 0);
@@ -132,6 +134,16 @@
             this.InfernoTab.Text = "Inferno Difficulty";
             this.InfernoTab.UseVisualStyleBackColor = true;
             // 
+            // ModifyDAButton
+            // 
+            this.ModifyDAButton.Enabled = false;
+            this.ModifyDAButton.Location = new System.Drawing.Point(204, 19);
+            this.ModifyDAButton.Name = "ModifyDAButton";
+            this.ModifyDAButton.Size = new System.Drawing.Size(91, 48);
+            this.ModifyDAButton.TabIndex = 1;
+            this.ModifyDAButton.Text = "Modify DA";
+            this.ModifyDAButton.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +171,7 @@
         private System.Windows.Forms.TabPage HardcoreTab;
         private System.Windows.Forms.TabPage NightmareTab;
         private System.Windows.Forms.TabPage InfernoTab;
+        private System.Windows.Forms.Button ModifyDAButton;
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using RE3R_Tools_DA_Library;
 using RE3R_Tools_DA_Modifier.Controls;
+using RE3R_Tools_DA_Modifier.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,29 @@ namespace RE3R_Tools_DA_Modifier
 
             LoadFileBtn.Click += LoadFileBtn_Click;
             InitialiseAdjustmentDisplayControls();
+
+            ModifyDAButton.Click += DisplayModifyForm;
+        }
+
+        private void DisplayModifyForm(object sender, EventArgs e)
+        {
+            RankAdjustmentParser parser = new RankAdjustmentParser(FileData);
+            var daInfo = parser.GetDifficultyAdjustments();
+            using (ModifyDifficultyAdjustmentsForm form = new ModifyDifficultyAdjustmentsForm(daInfo))
+            {
+                DialogResult result = form.ShowDialog();
+                System.Diagnostics.Debug.WriteLine(result);
+                if(result == DialogResult.OK)
+                {
+                    daInfo = form.GetAdjustments();
+
+                    for (int i = 0; i < daInfo.Length && i < DifficultyInfoTabControl.TabPages.Count; ++i)
+                    {
+                        DifficultyInfoTabControl.TabPages[i].Text = daInfo[i].Difficulty.ToString();
+                        AdjustmentDisplays[i].SetDifficultyAdjustmentInfo(daInfo[i]);
+                    }
+                }
+            }
         }
 
         private void InitialiseAdjustmentDisplayControls()
@@ -65,12 +89,15 @@ namespace RE3R_Tools_DA_Modifier
                 dialog.Filter = "RE3R Unpacked Files (*.user.2)|*.user.2";
                 dialog.InitialDirectory = Application.ExecutablePath;
                 DialogResult result = dialog.ShowDialog();
-                if(result == DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     FileData = System.IO.File.ReadAllBytes(dialog.FileName);
                     DumpDataToConsole();
                     DisplayFileData();
+                    ModifyDAButton.Enabled = true;
                 }
+                else
+                    ModifyDAButton.Enabled = false;
             }
         }
 

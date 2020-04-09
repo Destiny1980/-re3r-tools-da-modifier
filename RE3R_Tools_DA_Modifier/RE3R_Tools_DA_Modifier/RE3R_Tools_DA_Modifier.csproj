@@ -52,11 +52,29 @@
     <Compile Include="Controls\DifficultyAdjustmentDisplayControl.Designer.cs">
       <DependentUpon>DifficultyAdjustmentDisplayControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ModifyDifficultyAdjustmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModifyDifficultyAdjustmentControl.Designer.cs">
+      <DependentUpon>ModifyDifficultyAdjustmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ModifyRankAdjustmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ModifyRankAdjustmentControl.Designer.cs">
+      <DependentUpon>ModifyRankAdjustmentControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RankAdjustmentDisplayControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\RankAdjustmentDisplayControl.Designer.cs">
       <DependentUpon>RankAdjustmentDisplayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ModifyDifficultyAdjustmentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ModifyDifficultyAdjustmentsForm.Designer.cs">
+      <DependentUpon>ModifyDifficultyAdjustmentsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -69,8 +87,17 @@
     <EmbeddedResource Include="Controls\DifficultyAdjustmentDisplayControl.resx">
       <DependentUpon>DifficultyAdjustmentDisplayControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModifyDifficultyAdjustmentControl.resx">
+      <DependentUpon>ModifyDifficultyAdjustmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ModifyRankAdjustmentControl.resx">
+      <DependentUpon>ModifyRankAdjustmentControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\RankAdjustmentDisplayControl.resx">
       <DependentUpon>RankAdjustmentDisplayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ModifyDifficultyAdjustmentsForm.resx">
+      <DependentUpon>ModifyDifficultyAdjustmentsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
