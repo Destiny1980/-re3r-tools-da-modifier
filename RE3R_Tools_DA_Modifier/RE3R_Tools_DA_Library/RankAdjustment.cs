@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RE3R_Tools_DA_Library
+﻿namespace RE3R_Tools_DA_Library
 {
     public enum Rank
     {

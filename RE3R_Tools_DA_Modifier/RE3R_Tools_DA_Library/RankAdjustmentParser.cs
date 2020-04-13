@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RE3R_Tools_DA_Library
 {
     public class RankAdjustmentParser
     {
         private byte[] Data;
-        private const string RankAdjustmentFileName = "gamerankparameterdata.user.2";
+        //private const string RankAdjustmentFileName = "gamerankparameterdata.user.2";
         private const int DAMAGE_TAKEN_OFFSET_START = 0x7E0;
         private const int DAMAGE_DEALT_OFFSET_START = 0x834;
         private const int BYTES_PER_VALUE = 4;
@@ -16,6 +14,20 @@ namespace RE3R_Tools_DA_Library
         public RankAdjustmentParser(byte[] data)
         {
             Data = data;
+        }
+
+        public byte[] BuildFileData(DifficultyAdjustment[] adjustments)
+        {
+            foreach(var adjustment in adjustments)
+            {
+                foreach(var rank in adjustment.RankAdjustments)
+                {
+                    SetDifficultyDamageDealtValue(adjustment.Difficulty, rank.Ranking, rank.DamageDealt);
+                    SetDifficultyDamageTakenValue(adjustment.Difficulty, rank.Ranking, rank.DamageTaken);
+                }
+            }
+
+            return Data;
         }
 
         public DifficultyAdjustment[] GetDifficultyAdjustments()
@@ -67,6 +79,29 @@ namespace RE3R_Tools_DA_Library
         private int GetDamageDealtOffset(DifficultyMode mode)
         {
             return DAMAGE_DEALT_OFFSET_START + (int)mode * BYTES_PER_DIFFICULTY;
+        }
+
+        private void SetDifficultyDamageDealtValue(DifficultyMode mode, Rank ranking, float value)
+        {
+            int dmgDealtOffset = GetDamageDealtOffset(mode);
+            int valueOffset = BYTES_PER_VALUE * (int)ranking;
+
+            SetDamageValue(dmgDealtOffset + valueOffset, value);
+        }
+
+        private void SetDifficultyDamageTakenValue(DifficultyMode mode, Rank ranking, float value)
+        {
+            int dmgTakenOffset = GetDamageTakenOffset(mode);
+            int valueOffset = BYTES_PER_VALUE * (int)ranking;
+
+            SetDamageValue(dmgTakenOffset + valueOffset, value);
+        }
+
+        private void SetDamageValue(int offset, float value)
+        {
+            var bytes = BitConverter.GetBytes(value);
+
+            Array.Copy(bytes, 0, Data, offset, bytes.Length);
         }
     }
 }

@@ -2,13 +2,6 @@
 using RE3R_Tools_DA_Modifier.Controls;
 using RE3R_Tools_DA_Modifier.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RE3R_Tools_DA_Modifier
@@ -17,6 +10,7 @@ namespace RE3R_Tools_DA_Modifier
     {
         private const string TargetDAFile = "gamerankparameterdata.user.2";
         private byte[] FileData;
+        private byte[] DataToSave;
 
         private DifficultyAdjustmentDisplayControl[] AdjustmentDisplays;
 
@@ -28,6 +22,16 @@ namespace RE3R_Tools_DA_Modifier
             InitialiseAdjustmentDisplayControls();
 
             ModifyDAButton.Click += DisplayModifyForm;
+            SaveButton.Click += (s, e) => SaveFile();
+            ResetToDefaultButton.Click += ResetToDefaultButton_Click;
+        }
+
+        private void ResetToDefaultButton_Click(object sender, EventArgs e)
+        {
+            RankAdjustmentParser parser = new RankAdjustmentParser(FileData);
+            DataToSave = parser.BuildFileData(DifficultyAdjustment.DefaultDamageAdjustments);
+            FileData = DataToSave;
+            DisplayFileData();
         }
 
         private void DisplayModifyForm(object sender, EventArgs e)
@@ -47,6 +51,24 @@ namespace RE3R_Tools_DA_Modifier
                         DifficultyInfoTabControl.TabPages[i].Text = daInfo[i].Difficulty.ToString();
                         AdjustmentDisplays[i].SetDifficultyAdjustmentInfo(daInfo[i]);
                     }
+
+                    DataToSave = parser.BuildFileData(daInfo);
+                    SaveButton.Enabled = true;
+                }
+            }
+        }
+
+        private void SaveFile()
+        {
+            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            {
+                saveDialog.InitialDirectory = Application.ExecutablePath;
+                saveDialog.Title = "Save" + TargetDAFile;
+                saveDialog.Filter = "RE3R Unpacked Files (*.user.2)|*.user.2";
+                var saveResult = saveDialog.ShowDialog();
+                if (saveResult == DialogResult.OK)
+                {
+                    System.IO.File.WriteAllBytes(saveDialog.FileName, DataToSave);
                 }
             }
         }
@@ -95,6 +117,7 @@ namespace RE3R_Tools_DA_Modifier
                     DumpDataToConsole();
                     DisplayFileData();
                     ModifyDAButton.Enabled = true;
+                    ResetToDefaultButton.Enabled = true;
                 }
                 else
                     ModifyDAButton.Enabled = false;

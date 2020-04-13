@@ -30,6 +30,9 @@
         {
             this.LoadFileBtn = new System.Windows.Forms.Button();
             this.OptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.ResetToDefaultButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.ModifyDAButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.DifficultyInfoTabControl = new System.Windows.Forms.TabControl();
             this.AssistedTab = new System.Windows.Forms.TabPage();
@@ -37,7 +40,6 @@
             this.HardcoreTab = new System.Windows.Forms.TabPage();
             this.NightmareTab = new System.Windows.Forms.TabPage();
             this.InfernoTab = new System.Windows.Forms.TabPage();
-            this.ModifyDAButton = new System.Windows.Forms.Button();
             this.OptionsGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.DifficultyInfoTabControl.SuspendLayout();
@@ -54,6 +56,8 @@
             // 
             // OptionsGroupBox
             // 
+            this.OptionsGroupBox.Controls.Add(this.ResetToDefaultButton);
+            this.OptionsGroupBox.Controls.Add(this.SaveButton);
             this.OptionsGroupBox.Controls.Add(this.ModifyDAButton);
             this.OptionsGroupBox.Controls.Add(this.LoadFileBtn);
             this.OptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
@@ -63,6 +67,36 @@
             this.OptionsGroupBox.TabIndex = 2;
             this.OptionsGroupBox.TabStop = false;
             this.OptionsGroupBox.Text = "Options";
+            // 
+            // ResetToDefaultButton
+            // 
+            this.ResetToDefaultButton.Enabled = false;
+            this.ResetToDefaultButton.Location = new System.Drawing.Point(444, 20);
+            this.ResetToDefaultButton.Name = "ResetToDefaultButton";
+            this.ResetToDefaultButton.Size = new System.Drawing.Size(106, 47);
+            this.ResetToDefaultButton.TabIndex = 3;
+            this.ResetToDefaultButton.Text = "Reset to Default";
+            this.ResetToDefaultButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Enabled = false;
+            this.SaveButton.Location = new System.Drawing.Point(315, 20);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(112, 47);
+            this.SaveButton.TabIndex = 2;
+            this.SaveButton.Text = "Save DA File";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            // 
+            // ModifyDAButton
+            // 
+            this.ModifyDAButton.Enabled = false;
+            this.ModifyDAButton.Location = new System.Drawing.Point(204, 19);
+            this.ModifyDAButton.Name = "ModifyDAButton";
+            this.ModifyDAButton.Size = new System.Drawing.Size(91, 48);
+            this.ModifyDAButton.TabIndex = 1;
+            this.ModifyDAButton.Text = "Modify DA";
+            this.ModifyDAButton.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -134,16 +168,6 @@
             this.InfernoTab.Text = "Inferno Difficulty";
             this.InfernoTab.UseVisualStyleBackColor = true;
             // 
-            // ModifyDAButton
-            // 
-            this.ModifyDAButton.Enabled = false;
-            this.ModifyDAButton.Location = new System.Drawing.Point(204, 19);
-            this.ModifyDAButton.Name = "ModifyDAButton";
-            this.ModifyDAButton.Size = new System.Drawing.Size(91, 48);
-            this.ModifyDAButton.TabIndex = 1;
-            this.ModifyDAButton.Text = "Modify DA";
-            this.ModifyDAButton.UseVisualStyleBackColor = true;
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,7 +176,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.OptionsGroupBox);
             this.Name = "MainWindow";
-            this.Text = "Resident Evil 3 Remake: Difficulty Adjustment (Damage)";
+            this.Text = "Resident Evil 3 Remake: Difficulty Adjustment (Damage) by Moehammered";
             this.OptionsGroupBox.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.DifficultyInfoTabControl.ResumeLayout(false);
@@ -172,6 +196,8 @@
         private System.Windows.Forms.TabPage NightmareTab;
         private System.Windows.Forms.TabPage InfernoTab;
         private System.Windows.Forms.Button ModifyDAButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button ResetToDefaultButton;
     }
 }
 
