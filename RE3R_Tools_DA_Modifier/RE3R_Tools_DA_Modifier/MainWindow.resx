@@ -117,4 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>DA stands for Difficulty Adjustment. It's a system in RE games (since RE4) that adjusts the behaviour and/or other values to make the game easier or harder.
+
+You can edit the damage values in the file the DA system uses with this tool. The file is called 'gamerankparameterdata.user.2'. You can get it by unpacking the game files using RETool. To find out more, visit the residentevil modding forums.
+
+Short version is:
+Play better -&gt; DA Rank goes higher.
+Player worse -&gt; DA Rank goes lower.
+
+In Inferno the DA Rank minimum is 11, and cap is 19.
+In Nightmare the DA Rank minimum I'm not sure, but the cap is 10.
+In Hardcore and under, I'm unsure but you can experiment and find out!
+
+If you set Damage Taken to 1%, you'll take 1% damage(basically unkillable). Set it to 500% and anything can basically kill you in one hit.
+If you set Damage Dealt to 300% you'll deal 3 times the amount of normal damage from weapons! (Can also make having a knife fight with Nemesis on Inferno a level playing field.)
+
+Have fun! 
+
+Note to people new to modding:
+If you use FluffyQuack's ModManager, you can make a mod out of the file you save from here. Visit the resident evil modding forums and check out how to do so! (Tutorials for RE2R will be plenty, and making a mod works the same way in RE3R too.)
+</value>
+  </data>
 </root>

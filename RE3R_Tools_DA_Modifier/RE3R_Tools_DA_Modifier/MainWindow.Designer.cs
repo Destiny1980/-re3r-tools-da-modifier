@@ -28,21 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.LoadFileBtn = new System.Windows.Forms.Button();
             this.OptionsGroupBox = new System.Windows.Forms.GroupBox();
             this.ResetToDefaultButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.ModifyDAButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.DifficultyInfoTabControl = new System.Windows.Forms.TabControl();
-            this.AssistedTab = new System.Windows.Forms.TabPage();
-            this.StandardTab = new System.Windows.Forms.TabPage();
-            this.HardcoreTab = new System.Windows.Forms.TabPage();
-            this.NightmareTab = new System.Windows.Forms.TabPage();
-            this.InfernoTab = new System.Windows.Forms.TabPage();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.displayDADamageGrid1 = new RE3R_Tools_DA_Modifier.Controls.DisplayDADamageGrid();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.OptionsGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.DifficultyInfoTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // LoadFileBtn
@@ -58,12 +54,11 @@
             // 
             this.OptionsGroupBox.Controls.Add(this.ResetToDefaultButton);
             this.OptionsGroupBox.Controls.Add(this.SaveButton);
-            this.OptionsGroupBox.Controls.Add(this.ModifyDAButton);
             this.OptionsGroupBox.Controls.Add(this.LoadFileBtn);
             this.OptionsGroupBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.OptionsGroupBox.Location = new System.Drawing.Point(0, 0);
             this.OptionsGroupBox.Name = "OptionsGroupBox";
-            this.OptionsGroupBox.Size = new System.Drawing.Size(882, 73);
+            this.OptionsGroupBox.Size = new System.Drawing.Size(744, 73);
             this.OptionsGroupBox.TabIndex = 2;
             this.OptionsGroupBox.TabStop = false;
             this.OptionsGroupBox.Text = "Options";
@@ -71,7 +66,7 @@
             // ResetToDefaultButton
             // 
             this.ResetToDefaultButton.Enabled = false;
-            this.ResetToDefaultButton.Location = new System.Drawing.Point(444, 20);
+            this.ResetToDefaultButton.Location = new System.Drawing.Point(395, 20);
             this.ResetToDefaultButton.Name = "ResetToDefaultButton";
             this.ResetToDefaultButton.Size = new System.Drawing.Size(106, 47);
             this.ResetToDefaultButton.TabIndex = 3;
@@ -81,105 +76,60 @@
             // SaveButton
             // 
             this.SaveButton.Enabled = false;
-            this.SaveButton.Location = new System.Drawing.Point(315, 20);
+            this.SaveButton.Location = new System.Drawing.Point(235, 19);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(112, 47);
             this.SaveButton.TabIndex = 2;
             this.SaveButton.Text = "Save DA File";
             this.SaveButton.UseVisualStyleBackColor = true;
             // 
-            // ModifyDAButton
-            // 
-            this.ModifyDAButton.Enabled = false;
-            this.ModifyDAButton.Location = new System.Drawing.Point(204, 19);
-            this.ModifyDAButton.Name = "ModifyDAButton";
-            this.ModifyDAButton.Size = new System.Drawing.Size(91, 48);
-            this.ModifyDAButton.TabIndex = 1;
-            this.ModifyDAButton.Text = "Modify DA";
-            this.ModifyDAButton.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.DifficultyInfoTabControl);
+            this.panel1.Controls.Add(this.richTextBox1);
+            this.panel1.Controls.Add(this.splitter1);
+            this.panel1.Controls.Add(this.displayDADamageGrid1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 73);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(882, 338);
+            this.panel1.Size = new System.Drawing.Size(744, 338);
             this.panel1.TabIndex = 3;
             // 
-            // DifficultyInfoTabControl
+            // splitter1
             // 
-            this.DifficultyInfoTabControl.Controls.Add(this.AssistedTab);
-            this.DifficultyInfoTabControl.Controls.Add(this.StandardTab);
-            this.DifficultyInfoTabControl.Controls.Add(this.HardcoreTab);
-            this.DifficultyInfoTabControl.Controls.Add(this.NightmareTab);
-            this.DifficultyInfoTabControl.Controls.Add(this.InfernoTab);
-            this.DifficultyInfoTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DifficultyInfoTabControl.Location = new System.Drawing.Point(0, 0);
-            this.DifficultyInfoTabControl.Name = "DifficultyInfoTabControl";
-            this.DifficultyInfoTabControl.SelectedIndex = 0;
-            this.DifficultyInfoTabControl.Size = new System.Drawing.Size(882, 338);
-            this.DifficultyInfoTabControl.TabIndex = 0;
+            this.splitter1.Location = new System.Drawing.Point(437, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 338);
+            this.splitter1.TabIndex = 1;
+            this.splitter1.TabStop = false;
             // 
-            // AssistedTab
+            // displayDADamageGrid1
             // 
-            this.AssistedTab.Location = new System.Drawing.Point(4, 22);
-            this.AssistedTab.Name = "AssistedTab";
-            this.AssistedTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AssistedTab.Size = new System.Drawing.Size(874, 312);
-            this.AssistedTab.TabIndex = 0;
-            this.AssistedTab.Text = "Assisted Difficulty";
-            this.AssistedTab.UseVisualStyleBackColor = true;
+            this.displayDADamageGrid1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.displayDADamageGrid1.Location = new System.Drawing.Point(0, 0);
+            this.displayDADamageGrid1.Name = "displayDADamageGrid1";
+            this.displayDADamageGrid1.Size = new System.Drawing.Size(437, 338);
+            this.displayDADamageGrid1.TabIndex = 0;
             // 
-            // StandardTab
+            // richTextBox1
             // 
-            this.StandardTab.Location = new System.Drawing.Point(4, 22);
-            this.StandardTab.Name = "StandardTab";
-            this.StandardTab.Padding = new System.Windows.Forms.Padding(3);
-            this.StandardTab.Size = new System.Drawing.Size(874, 312);
-            this.StandardTab.TabIndex = 1;
-            this.StandardTab.Text = "Standard Difficulty";
-            this.StandardTab.UseVisualStyleBackColor = true;
-            // 
-            // HardcoreTab
-            // 
-            this.HardcoreTab.Location = new System.Drawing.Point(4, 22);
-            this.HardcoreTab.Name = "HardcoreTab";
-            this.HardcoreTab.Size = new System.Drawing.Size(874, 312);
-            this.HardcoreTab.TabIndex = 2;
-            this.HardcoreTab.Text = "Hardcore Difficulty";
-            this.HardcoreTab.UseVisualStyleBackColor = true;
-            // 
-            // NightmareTab
-            // 
-            this.NightmareTab.Location = new System.Drawing.Point(4, 22);
-            this.NightmareTab.Name = "NightmareTab";
-            this.NightmareTab.Size = new System.Drawing.Size(874, 312);
-            this.NightmareTab.TabIndex = 3;
-            this.NightmareTab.Text = "Nightmare Difficulty";
-            this.NightmareTab.UseVisualStyleBackColor = true;
-            // 
-            // InfernoTab
-            // 
-            this.InfernoTab.Location = new System.Drawing.Point(4, 22);
-            this.InfernoTab.Name = "InfernoTab";
-            this.InfernoTab.Size = new System.Drawing.Size(874, 312);
-            this.InfernoTab.TabIndex = 4;
-            this.InfernoTab.Text = "Inferno Difficulty";
-            this.InfernoTab.UseVisualStyleBackColor = true;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(440, 0);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(304, 338);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 411);
+            this.ClientSize = new System.Drawing.Size(744, 411);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.OptionsGroupBox);
             this.Name = "MainWindow";
             this.Text = "Resident Evil 3 Remake: Difficulty Adjustment (Damage) by Moehammered";
             this.OptionsGroupBox.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.DifficultyInfoTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -189,15 +139,11 @@
         private System.Windows.Forms.Button LoadFileBtn;
         private System.Windows.Forms.GroupBox OptionsGroupBox;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl DifficultyInfoTabControl;
-        private System.Windows.Forms.TabPage AssistedTab;
-        private System.Windows.Forms.TabPage StandardTab;
-        private System.Windows.Forms.TabPage HardcoreTab;
-        private System.Windows.Forms.TabPage NightmareTab;
-        private System.Windows.Forms.TabPage InfernoTab;
-        private System.Windows.Forms.Button ModifyDAButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.Button ResetToDefaultButton;
+        private System.Windows.Forms.Splitter splitter1;
+        private Controls.DisplayDADamageGrid displayDADamageGrid1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

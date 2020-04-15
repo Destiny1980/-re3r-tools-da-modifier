@@ -12,6 +12,26 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Moehammered\Documents\re3r-tools-da-modifier-v1\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
+    <ProductName>re3r-tools-da-modifier-v1</ProductName>
+    <PublisherName>Moehammered</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +52,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>02CF16D166225EF495E3488DF379B9FBD918717B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>RE3R_Tools_DA_Modifier_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,35 +78,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\DifficultyAdjustmentDisplayControl.cs">
+    <Compile Include="Controls\DisplayDADamageGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\DifficultyAdjustmentDisplayControl.Designer.cs">
-      <DependentUpon>DifficultyAdjustmentDisplayControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ModifyDifficultyAdjustmentControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ModifyDifficultyAdjustmentControl.Designer.cs">
-      <DependentUpon>ModifyDifficultyAdjustmentControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\ModifyRankAdjustmentControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ModifyRankAdjustmentControl.Designer.cs">
-      <DependentUpon>ModifyRankAdjustmentControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\RankAdjustmentDisplayControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\RankAdjustmentDisplayControl.Designer.cs">
-      <DependentUpon>RankAdjustmentDisplayControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ModifyDifficultyAdjustmentsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ModifyDifficultyAdjustmentsForm.Designer.cs">
-      <DependentUpon>ModifyDifficultyAdjustmentsForm.cs</DependentUpon>
+    <Compile Include="Controls\DisplayDADamageGrid.Designer.cs">
+      <DependentUpon>DisplayDADamageGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
@@ -84,20 +92,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\DifficultyAdjustmentDisplayControl.resx">
-      <DependentUpon>DifficultyAdjustmentDisplayControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ModifyDifficultyAdjustmentControl.resx">
-      <DependentUpon>ModifyDifficultyAdjustmentControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ModifyRankAdjustmentControl.resx">
-      <DependentUpon>ModifyRankAdjustmentControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\RankAdjustmentDisplayControl.resx">
-      <DependentUpon>RankAdjustmentDisplayControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ModifyDifficultyAdjustmentsForm.resx">
-      <DependentUpon>ModifyDifficultyAdjustmentsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\DisplayDADamageGrid.resx">
+      <DependentUpon>DisplayDADamageGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -129,6 +125,18 @@
       <Project>{E2178059-1C43-4773-897C-D9D221EEC932}</Project>
       <Name>RE3R_Tools_DA_Library</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
